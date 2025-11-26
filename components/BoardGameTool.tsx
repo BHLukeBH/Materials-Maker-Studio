@@ -172,7 +172,7 @@ const BoardGameTool: React.FC = () => {
 // Reusable Board Renderer
 const GameBoard = ({ tiles, template, onTileClick, printMode }: { tiles: BoardTile[], template: BoardGameTemplate, onTileClick?: (id: number) => void, printMode?: boolean }) => {
     
-    const tileClass = (_: BoardTile) => `
+    const tileClass = (t: BoardTile) => `
         border-2 border-slate-800 flex items-center justify-center text-center p-2 relative
         ${printMode ? 'shadow-none' : 'shadow-md cursor-pointer hover:scale-105 transition-transform'}
         text-sm font-bold
@@ -237,7 +237,7 @@ const GameBoard = ({ tiles, template, onTileClick, printMode }: { tiles: BoardTi
         // Race Track Loop: 6x6 Grid.
         // Uses Grid Area logic to place tiles in a loop around the center.
         return (
-            <div className="relative w-[800px] aspect-square bg-slate-50 border-4 border-slate-300 rounded-3xl p-6 grid grid-cols-6 grid-rows-6 gap-2">
+            <div className="relative w-[800px] aspect-square bg-white border-4 border-slate-300 rounded-3xl p-6 grid grid-cols-6 grid-rows-6 gap-2">
                  {/* Center Decoration */}
                  <div className="col-start-2 col-end-6 row-start-2 row-end-6 border-4 border-dashed border-slate-200 rounded-2xl flex items-center justify-center pointer-events-none">
                     <span className="text-6xl font-black text-slate-200 rotate-[-15deg]">RACE!</span>
