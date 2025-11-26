@@ -77,7 +77,7 @@ const ImageCropperModal: React.FC<ImageCropperModalProps> = ({ imageSrc, onCance
     };
 
     return (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div className="no-print fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-xl overflow-hidden max-w-2xl w-full flex flex-col shadow-2xl">
                 <div className="p-4 border-b flex justify-between items-center bg-slate-50">
                     <h3 className="font-bold text-slate-800">Crop Image (4:3)</h3>
