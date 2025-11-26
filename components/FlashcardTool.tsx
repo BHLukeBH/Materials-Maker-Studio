@@ -162,7 +162,7 @@ const FlashcardTool: React.FC = () => {
             </div>
 
             {/* Hidden Print View */}
-            <div className={`print-only w-full h-full ${selectedFont}`}>
+            <div className={`print-only w-full h-full bg-white ${selectedFont}`}>
                 {/* Print Layout Logic */}
                 <div className={`grid ${printLayout === '1-per-page' ? 'grid-cols-1' : 'grid-cols-2'} gap-0 w-full`}>
                     {cards.filter(c => c.text || c.image).map((card, idx) => (
