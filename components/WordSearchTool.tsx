@@ -124,9 +124,9 @@ HERE"
 
             {/* Print Layouts */}
             {isGenerated && (
-                <div className="print-only">
+                <div className="print-only w-full h-full bg-white">
                     {/* Page 1: Student Version */}
-                    <div className="w-full h-[95vh] page-break p-8 flex flex-col items-center">
+                    <div className="w-full h-[95vh] page-break p-8 flex flex-col items-center bg-white">
                         <h1 className="text-3xl font-bold font-serif mb-4">{config.title}</h1>
                         
                         {/* Grid */}
@@ -158,7 +158,7 @@ HERE"
                     </div>
 
                     {/* Page 2: Answer Key */}
-                    <div className="w-full h-[95vh] p-8 flex flex-col items-center">
+                    <div className="w-full h-[95vh] p-8 flex flex-col items-center bg-white">
                         <h1 className="text-3xl font-bold font-serif mb-4">{config.title} - ANSWER KEY</h1>
                         
                          {/* Grid with Highlights */}
