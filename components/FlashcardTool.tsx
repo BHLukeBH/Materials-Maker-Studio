@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Upload, X, Printer, Layout, Type as TypeIcon } from 'lucide-react';
 import { Flashcard } from '../types';
 import ImageCropperModal from './ImageCropperModal';
