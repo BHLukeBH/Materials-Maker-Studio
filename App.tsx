@@ -64,7 +64,7 @@ const App: React.FC = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 h-full overflow-y-auto bg-slate-100 relative">
+      <main className="flex-1 h-full overflow-y-auto bg-slate-100 print:bg-white relative">
         {renderTool()}
       </main>
     </div>
