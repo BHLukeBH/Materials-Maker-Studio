@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BoardTile, BoardGameTemplate } from '../types';
-import { Printer, Edit2, Type, Palette } from 'lucide-react';
+import { Printer, Edit2, Type, Palette, ArrowRight, ArrowLeft, ArrowDown } from 'lucide-react';
 
 const COLORS = [
     { name: 'White', value: '#ffffff' },
@@ -227,7 +227,7 @@ const BoardGameTool: React.FC = () => {
             )}
 
             {/* Print View */}
-            <div className="print-only w-full h-full p-4 flex flex-col items-center justify-center">
+            <div className="print-only w-full h-full p-4 flex flex-col items-center justify-center bg-white">
                 <h1 className="text-5xl font-bold text-center mb-8 font-serif text-bh-navy uppercase tracking-wider">
                     {gameTitle}
                 </h1>
@@ -298,6 +298,28 @@ const GameBoard: React.FC<GameBoardProps> = ({ tiles, template, bgStyle, onTileC
         // Row 3 (Reversed)
         for(let i=23; i>=18; i--) displayOrder.push(i);
 
+        // Arrow Logic
+        const getArrow = (id: number) => {
+            const arrowClass = "absolute text-slate-800 opacity-20 pointer-events-none";
+            // Row 0 (0-5)
+            if ([0,1,2,3,4].includes(id)) return <ArrowRight size={24} className={`${arrowClass} right-1 top-1/2 -translate-y-1/2`} />;
+            if (id === 5) return <ArrowDown size={24} className={`${arrowClass} bottom-1 left-1/2 -translate-x-1/2`} />;
+            
+            // Row 1 (6-11) - Moving Left
+            if ([6,7,8,9,10].includes(id)) return <ArrowLeft size={24} className={`${arrowClass} left-1 top-1/2 -translate-y-1/2`} />;
+            if (id === 11) return <ArrowDown size={24} className={`${arrowClass} bottom-1 left-1/2 -translate-x-1/2`} />;
+
+            // Row 2 (12-17) - Moving Right
+            if ([12,13,14,15,16].includes(id)) return <ArrowRight size={24} className={`${arrowClass} right-1 top-1/2 -translate-y-1/2`} />;
+            if (id === 17) return <ArrowDown size={24} className={`${arrowClass} bottom-1 left-1/2 -translate-x-1/2`} />;
+
+            // Row 3 (18-23) - Moving Left
+            if ([18,19,20,21,22].includes(id)) return <ArrowLeft size={24} className={`${arrowClass} left-1 top-1/2 -translate-y-1/2`} />;
+            // 23 is Finish
+
+            return null;
+        };
+
         return (
             <div 
                 className="grid grid-cols-6 gap-2 w-[800px] p-8 rounded-xl print-exact border-4 border-slate-800"
@@ -315,6 +337,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ tiles, template, bgStyle, onTileC
                             onClick={() => onTileClick && onTileClick(t.id)}
                         >
                             <span className="absolute top-1 left-2 text-xs opacity-50">{t.id + 1}</span>
+                            {getArrow(t.id)}
                             {t.text}
                         </div>
                     );
